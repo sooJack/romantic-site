@@ -1,11 +1,51 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { CiPause1 } from 'react-icons/ci'
+import { VscDebugStart } from 'react-icons/vsc'
 import './Hero.css'
-import { VscDebugStart } from "react-icons/vsc";
-import { CiPause1 } from "react-icons/ci";
 
 function Hero() {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const baseUrl = import.meta.env.BASE_URL
+
+  const fadeAudio = (targetVolume, duration = 300) => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    const startVolume = audio.volume
+    const startTime = performance.now()
+
+    const step = () => {
+      const elapsed = performance.now() - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      audio.volume = startVolume + (targetVolume - startVolume) * progress
+
+      if (progress < 1) {
+        requestAnimationFrame(step)
+      }
+    }
+
+    requestAnimationFrame(step)
+  }
+
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    const startPlayback = async () => {
+      try {
+        audio.volume = 0
+        await audio.play()
+        fadeAudio(1, 400)
+        setIsPlaying(true)
+      } catch (error) {
+        console.error('Erro ao reproduzir a música:', error)
+        setIsPlaying(false)
+      }
+    }
+
+    startPlayback()
+  }, [])
 
   const togglePlayback = async () => {
     const audio = audioRef.current
@@ -13,16 +53,21 @@ function Hero() {
 
     if (audio.paused) {
       try {
-        audio.currentTime = 0
+        audio.volume = 0
         await audio.play()
+        fadeAudio(1, 400)
         setIsPlaying(true)
       } catch (error) {
         console.error('Erro ao reproduzir a música:', error)
         setIsPlaying(false)
       }
     } else {
-      audio.pause()
-      setIsPlaying(false)
+      fadeAudio(0, 300)
+      setTimeout(() => {
+        audio.pause()
+        audio.volume = 1
+        setIsPlaying(false)
+      }, 300)
     }
   }
 
@@ -30,12 +75,11 @@ function Hero() {
     <section id="hero" className="hero-section">
       <div className="hero-player">
         <div className={`hero-disc ${isPlaying ? 'is-playing' : ''}`}>
-          <img src="/images/vinil-laufey.png" alt="Capa da música" />
+          <img src={`${baseUrl}images/vinil-laufey.png`} alt="Capa da música" />
         </div>
 
         <button type="button" className="hero-player-button" onClick={togglePlayback}>
           {isPlaying ? <CiPause1 /> : <VscDebugStart />}
-          <span>{isPlaying ? 'Pausar' : 'Tocar'}</span>
         </button>
       </div>
 
@@ -47,7 +91,7 @@ function Hero() {
 
       <audio
         ref={audioRef}
-        src="/music/our-song.mp3"
+        src={`${baseUrl}music/our-song.mp3`}
         preload="auto"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}

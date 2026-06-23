@@ -1,9 +1,12 @@
 import { useRef, useState } from 'react'
+import { CiPause1 } from 'react-icons/ci'
+import { VscDebugStart } from 'react-icons/vsc'
 import './Playlist.css'
 
 function Playlist() {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const baseUrl = import.meta.env.BASE_URL
 
   const togglePlayback = async () => {
     const audio = audioRef.current
@@ -37,18 +40,18 @@ function Playlist() {
 
           <div className="player-visual">
             <div className={`player-disc ${isPlaying ? 'is-playing' : ''}`}>
-              <img src="/images/avatar.png" alt="Capa da música" />
+              <img src={`${baseUrl}images/vinil-laufey.png`} alt="Capa da música" />
             </div>
 
             <button type="button" className="player-button" onClick={togglePlayback}>
-              {isPlaying ? 'Pause' : 'Play'}
+              {isPlaying ? <CiPause1 /> : <VscDebugStart />}
             </button>
           </div>
         </div>
 
         <audio
           ref={audioRef}
-          src="/music/our-song.mp3"
+          src={`${baseUrl}music/our-song.mp3`}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => setIsPlaying(false)}

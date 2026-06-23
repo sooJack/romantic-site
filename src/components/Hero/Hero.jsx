@@ -8,6 +8,7 @@ function Hero() {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const baseUrl = import.meta.env.BASE_URL
+  const assetVersion = '20260623-2'
 
   const [volume, setVolume] = useState(0.45)
 
@@ -78,7 +79,10 @@ function Hero() {
     <section id="hero" className="hero-section">
       <div className="hero-player">
         <div className={`hero-disc ${isPlaying ? 'is-playing' : ''}`}>
-          <img src={`${baseUrl}images/vinil-laufey.png`} alt="Capa da música" />
+          <img
+            src={`${baseUrl}images/vinil-laufey.png?v=${assetVersion}`}
+            alt="Capa da música"
+          />
         </div>
 
         <button type="button" className="hero-player-button" onClick={togglePlayback}>
@@ -113,7 +117,7 @@ function Hero() {
 
       <audio
         ref={audioRef}
-        src={`${baseUrl}music/our-song.mp3`}
+        src={`${baseUrl}music/our-song.mp3?v=${assetVersion}`}
         preload="auto"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}

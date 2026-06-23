@@ -9,7 +9,7 @@ export const letters = [
     id: 2,
     title: "Sua Risada",
     content:
-      "Sua risada é tão engraçada, principalmente quando faz barulho de porquinho bem fofa, eu gosto de ouvir por isso vou te fazer rir sempre que puder, mesmo que seja com super mega hiper engraçadas (maioria ne) ou as piadas sem graça alguma (raridade do jack). Vou te fazer mais feliz, assim eu vou ser feliz também."
+      "Sua risada é tão engraçada, principalmente quando faz barulho de porquinho bem fofa, eu gosto de ouvir por isso vou te fazer rir sempre que puder, mesmo que seja com super mega hiper piadas engraçadas (maioria ne) ou as piadas sem graça alguma (raridade do jack). Vou te fazer mais feliz, assim eu vou ser feliz também."
   },
   {
     id: 3,

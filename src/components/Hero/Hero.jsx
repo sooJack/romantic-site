@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { CiPause1 } from 'react-icons/ci'
+import { IoVolumeMediumOutline } from 'react-icons/io5'
 import { VscDebugStart } from 'react-icons/vsc'
 import './Hero.css'
 
@@ -7,6 +8,8 @@ function Hero() {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const baseUrl = import.meta.env.BASE_URL
+
+  const [volume, setVolume] = useState(0.45)
 
   const fadeAudio = (targetVolume, duration = 300) => {
     const audio = audioRef.current
@@ -36,7 +39,7 @@ function Hero() {
       try {
         audio.volume = 0
         await audio.play()
-        fadeAudio(1, 400)
+        fadeAudio(volume, 400)
         setIsPlaying(true)
       } catch (error) {
         console.error('Erro ao reproduzir a música:', error)
@@ -55,7 +58,7 @@ function Hero() {
       try {
         audio.volume = 0
         await audio.play()
-        fadeAudio(1, 400)
+        fadeAudio(volume, 400)
         setIsPlaying(true)
       } catch (error) {
         console.error('Erro ao reproduzir a música:', error)
@@ -65,7 +68,7 @@ function Hero() {
       fadeAudio(0, 300)
       setTimeout(() => {
         audio.pause()
-        audio.volume = 1
+        audio.volume = volume
         setIsPlaying(false)
       }, 300)
     }
@@ -81,6 +84,25 @@ function Hero() {
         <button type="button" className="hero-player-button" onClick={togglePlayback}>
           {isPlaying ? <CiPause1 /> : <VscDebugStart />}
         </button>
+
+        <div className="hero-volume-control">
+          <IoVolumeMediumOutline />
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.05"
+            value={volume}
+            onChange={(event) => {
+              const nextVolume = Number(event.target.value)
+              setVolume(nextVolume)
+              const audio = audioRef.current
+              if (audio) {
+                audio.volume = nextVolume
+              }
+            }}
+          />
+        </div>
       </div>
 
       <div className="hero-content">

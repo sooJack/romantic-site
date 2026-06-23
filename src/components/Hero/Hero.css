@@ -69,6 +69,19 @@
   color: #ff2b82;
 }
 
+.hero-volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #ff4f9d;
+  font-size: 1.1rem;
+}
+
+.hero-volume-control input {
+  width: 90px;
+  accent-color: #ff4f9d;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;

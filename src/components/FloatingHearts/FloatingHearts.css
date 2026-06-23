@@ -1,0 +1,52 @@
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-hearts span {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: radial-gradient(circle, #ffb7cf 35%, #d14f7f 100%);
+  border-radius: 50%;
+  opacity: 0.85;
+  animation: float 10s infinite ease-in-out;
+}
+
+.floating-hearts span:nth-child(1) {
+  left: 10%;
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+  right: 18%;
+  top: 40%;
+  animation-delay: 2s;
+}
+
+.floating-hearts span:nth-child(3) {
+  left: 50%;
+  top: 55%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(-120px) scale(1.3);
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-hearts span {
+    width: 1rem;
+    height: 1rem;
+  }
+}

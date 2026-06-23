@@ -1,0 +1,239 @@
+.garden{
+
+min-height:100vh;
+
+padding:80px 10%;
+
+background:
+
+linear-gradient(
+180deg,
+#ffe8f2,
+#fff
+);
+
+text-align:center;
+
+overflow:hidden;
+
+}
+
+
+
+.garden h2{
+
+font-size:3rem;
+
+color:#ff4f9d;
+
+}
+
+
+
+.garden-text{
+
+font-size:1.2rem;
+
+color:#666;
+
+}
+
+
+
+.garden-info{
+
+margin:30px auto;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+align-items:center;
+
+color:#ff4f9d;
+
+font-size:1.5rem;
+
+}
+
+
+
+.roses-area{
+
+
+min-height:350px;
+
+padding:30px;
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:25px;
+
+
+background:
+
+rgba(255,255,255,.6);
+
+
+border-radius:30px;
+
+
+box-shadow:
+
+0 20px 50px
+rgba(255,79,157,.15);
+
+
+}
+
+
+
+.rose{
+
+font-size:70px;
+
+position:relative;
+
+cursor:pointer;
+
+}
+
+
+
+.rose-heart{
+
+position:absolute;
+
+right:-10px;
+
+top:-5px;
+
+color:#ff4f9d;
+
+font-size:18px;
+
+}
+
+
+
+.empty{
+
+font-size:70px;
+
+color:#aaa;
+
+}
+
+
+
+.empty p{
+
+font-size:18px;
+
+}
+
+
+
+.garden-buttons{
+
+margin-top:40px;
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+}
+
+
+
+.garden-buttons button{
+
+
+border:none;
+
+padding:15px 30px;
+
+border-radius:50px;
+
+background:#ff4f9d;
+
+color:white;
+
+font-size:1rem;
+
+cursor:pointer;
+
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.garden-buttons button:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+.garden-buttons .delete{
+
+background:#555;
+
+}
+
+@media (max-width: 768px) {
+  .garden {
+    padding: 60px 5%;
+  }
+
+  .garden h2 {
+    font-size: 2rem;
+  }
+
+  .garden-text {
+    font-size: 1rem;
+  }
+
+  .garden-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .roses-area {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .rose {
+    font-size: 55px;
+  }
+
+  .garden-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .garden-buttons button {
+    width: 100%;
+    justify-content: center;
+  }
+}

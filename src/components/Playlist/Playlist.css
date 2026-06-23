@@ -1,0 +1,17 @@
+.playlist {
+  display: grid;
+  gap: 1rem;
+}
+
+.playlist-card {
+  padding: 2rem;
+  border-radius: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.playlist-card audio {
+  width: 100%;
+  margin-top: 1rem;
+}

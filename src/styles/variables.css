@@ -1,0 +1,22 @@
+:root {
+  --bg: #fff6f8;
+  --rose-50: #ffe5eb;
+  --rose-100: #ffd4dc;
+  --text: #3c213b;
+  --text-muted: #6a4e66;
+  --border: rgba(124, 54, 94, 0.16);
+  --card: rgba(255, 255, 255, 0.88);
+  --shadow: 0 30px 70px rgba(141, 78, 101, 0.12);
+  --accent: #d74272;
+  --accent-soft: #f7d8e5;
+  --radius: 32px;
+}
+
+body {
+  color: var(--text);
+  background: var(--bg);
+}
+
+::selection {
+  background: rgba(215, 66, 114, 0.18);
+}

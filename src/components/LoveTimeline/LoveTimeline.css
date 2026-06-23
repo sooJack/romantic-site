@@ -1,0 +1,23 @@
+.love-timeline {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.timeline-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-item {
+  padding: 1.75rem;
+  border-radius: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.timeline-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}

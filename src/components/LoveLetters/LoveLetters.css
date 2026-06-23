@@ -1,0 +1,145 @@
+.letters-section {
+  min-height: 100vh;
+  padding: 80px 10%;
+  background: linear-gradient(
+    180deg,
+    #fff0f6,
+    #ffe4ec
+  );
+}
+
+.letters-section h2 {
+  text-align: center;
+  color: #ff4f9d;
+  font-size: 3rem;
+  margin-bottom: 50px;
+}
+
+.letters-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.letter-card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow:
+    0 10px 30px rgba(255,79,157,.15);
+
+  transition: 0.3s;
+}
+
+.letter-icon {
+  font-size: 60px;
+  color: #ff4f9d;
+  margin-bottom: 15px;
+}
+
+.letter-card h3 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.letter-card button {
+  border: none;
+  background: #ff4f9d;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 700px;
+
+  background: white;
+  padding: 40px;
+
+  border-radius: 25px;
+
+  position: relative;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.2);
+}
+
+.modal-content h2 {
+  color: #ff4f9d;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  line-height: 1.8;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  border: none;
+  background: transparent;
+
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .letters-section {
+    padding: 60px 5%;
+  }
+
+  .letters-section h2 {
+    font-size: 2rem;
+    margin-bottom: 35px;
+  }
+
+  .letters-grid {
+    gap: 18px;
+  }
+
+  .letter-card {
+    padding: 22px;
+  }
+
+  .letter-icon {
+    font-size: 48px;
+  }
+
+  .letter-card button {
+    width: 100%;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 520px;
+    padding: 28px;
+  }
+}

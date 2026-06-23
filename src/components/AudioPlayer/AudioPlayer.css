@@ -1,0 +1,16 @@
+.audio-player {
+  padding: 1.5rem;
+  border-radius: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.audio-player p {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+audio {
+  width: 100%;
+}

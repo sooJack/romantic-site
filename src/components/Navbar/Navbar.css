@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  width: min(1200px, 100% - 2rem);
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 2rem;
+  box-shadow: 0 24px 70px rgba(146, 66, 107, 0.12);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.navbar__nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.navbar__nav a {
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.navbar__nav a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 750px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -7,8 +7,11 @@ import {
 import useLocalStorage from "../../hooks/useLocalStorage";
 import Rose from "./Rose";
 import { GiRose } from "react-icons/gi";
-import { GiShutRose } from "react-icons/gi";
+import { PiFlowerFill } from "react-icons/pi";
 import { GiBud } from "react-icons/gi";
+import { GiCottonFlower } from "react-icons/gi";
+import { TbFlowerOff } from "react-icons/tb";
+import { TiHeartOutline } from "react-icons/ti";
 import './RoseGarden.css';
 
 export default function RoseGarden() {
@@ -32,22 +35,22 @@ export default function RoseGarden() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
-        <GiRose /> Nosso Jardim
+        <PiFlowerFill /> Nosso Jardim
       </motion.h2>
 
       <p className="garden-text">
-        Cada rosa representa um momento nosso ❤️
+        Cada rosa representa um momento nosso <TiHeartOutline />
       </p>
 
       <div className="garden-info">
-        <span style={{fontSize: '1.5rem'}}><GiRose /></span>
+        <span style={{fontSize: '1.5rem'}}><GiCottonFlower /></span>
         <h3>{roses.length} rosas plantadas</h3>
       </div>
 
       <div className="roses-area">
         {roses.length === 0 ? (
           <div className="empty">
-            <GiShutRose />
+            <TbFlowerOff />
             <p>Nosso jardim está vazio...</p>
           </div>
         ) : (
@@ -59,7 +62,7 @@ export default function RoseGarden() {
 
       <div className="garden-buttons">
         <button onClick={plantRose}>
-          <GiBud /> Plantar Rosa
+          <GiCottonFlower /> Plantar Rosa
         </button>
 
         <button className="delete" onClick={clearGarden}>

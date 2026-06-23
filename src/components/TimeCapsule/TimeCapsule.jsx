@@ -5,6 +5,7 @@ import { FaGift, FaLock, FaUnlock } from "react-icons/fa"
 import useLocalStorage from "../../hooks/useLocalStorage"
 import CapsuleCard from "./CapsuleCard"
 import { TfiGift } from "react-icons/tfi";
+import { TiHeartOutline } from "react-icons/ti";
 
 import "./TimeCapsule.css"
 
@@ -41,7 +42,7 @@ export default function TimeCapsule() {
         <TfiGift /> Cápsulas do Tempo
       </motion.h2>
 
-      <p>Mensagens para o nosso futuro ❤️</p>
+      <p>Mensagens para o nosso futuro <TiHeartOutline /></p>
 
       <div className="capsule-create">
         <textarea

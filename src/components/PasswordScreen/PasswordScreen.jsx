@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaLock, FaEye, FaEyeSlash } from 'react-icons/fa'
 import './PasswordScreen.css'
+import { PiLightbulbFilamentLight } from "react-icons/pi";
+
 
 export default function PasswordScreen({ onUnlock }) {
   const [password, setPassword] = useState('')
@@ -42,7 +44,7 @@ export default function PasswordScreen({ onUnlock }) {
         <h2>Este é um presente especial</h2>
 
         <div className="hint-box">
-          <p>💡 <strong>Dica:</strong> Qual é o apelido mais fofo que eu já te dei?</p>
+          <p><PiLightbulbFilamentLight /> <strong>Dica:</strong> Qual é o apelido mais fofo que eu já te dei?</p>
         </div>
 
         <form onSubmit={handleSubmit}>

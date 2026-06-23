@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import './App.css'
 import Intro from './components/Intro/Intro'
 import PasswordScreen from './components/PasswordScreen/PasswordScreen'
+import Hero from './components/Hero/Hero'
 import LoveLetters from './components/LoveLetters/LoveLetters'
 import RoseGarden from './components/RoseGarden/RoseGarden'
 import RelationshipCounter from './components/RelationshipCounter/RelationshipCounter'
@@ -29,6 +30,7 @@ function App() {
       )}
       {stage === 'content' && (
         <div key="content">
+          <Hero />
           <RelationshipCounter />
           <LoveLetters />
           <RoseGarden />

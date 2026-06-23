@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { FaHeart } from 'react-icons/fa'
+import { GiFlowers } from "react-icons/gi";
 import './Intro.css'
 
 export default function Intro({ onIntroComplete }) {
@@ -47,7 +48,7 @@ export default function Intro({ onIntroComplete }) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
         >
-          ✨ Algo especial te espera... ✨
+          <GiFlowers /> Algo especial te espera... <GiFlowers />
         </motion.p>
       </motion.div>
     </motion.div>

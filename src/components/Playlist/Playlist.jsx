@@ -1,6 +1,27 @@
+import { useRef, useState } from 'react'
 import './Playlist.css'
 
 function Playlist() {
+  const audioRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const togglePlayback = async () => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    if (audio.paused) {
+      try {
+        await audio.play()
+        setIsPlaying(true)
+      } catch (error) {
+        console.error('Erro ao reproduzir a música:', error)
+      }
+    } else {
+      audio.pause()
+      setIsPlaying(false)
+    }
+  }
+
   return (
     <section id="playlist" className="playlist">
       <div className="section-header">
@@ -8,10 +29,30 @@ function Playlist() {
         <p>Play the melody that always brings us home.</p>
       </div>
       <div className="playlist-card">
-        <p>Our romantic song is ready to play.</p>
-        <audio controls src="/music/our-song.mp3">
-          Your browser does not support the audio element.
-        </audio>
+        <div className="playlist-player">
+          <div className="player-info">
+            <p>Our romantic song is ready to play.</p>
+            <span>“Our Song”</span>
+          </div>
+
+          <div className="player-visual">
+            <div className={`player-disc ${isPlaying ? 'is-playing' : ''}`}>
+              <img src="/images/avatar.png" alt="Capa da música" />
+            </div>
+
+            <button type="button" className="player-button" onClick={togglePlayback}>
+              {isPlaying ? 'Pause' : 'Play'}
+            </button>
+          </div>
+        </div>
+
+        <audio
+          ref={audioRef}
+          src="/music/our-song.mp3"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onEnded={() => setIsPlaying(false)}
+        />
       </div>
     </section>
   )
